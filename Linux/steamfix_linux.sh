@@ -51,6 +51,7 @@ if [[ $1 == "--set-login" ]]; then
 	)
 	if [[ $? -eq 0 ]]; then
 		echo $outData | $(openssl aes-256-cbc -pbkdf2 -out ~/.steamfix.encrypted -pass pass:"CHANGE_KEY")
+		chmod 600 ~/.steamfix.encrypted
 	fi
 	exit
 fi
