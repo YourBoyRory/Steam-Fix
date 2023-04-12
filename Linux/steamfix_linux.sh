@@ -51,6 +51,7 @@ if [[ $1 == "--set-login" ]]; then
 	)
 	if [[ $? -eq 0 ]]; then
 		echo $outData | $(openssl aes-256-cbc -pbkdf2 -out ~/.steamfix.encrypted -pass pass:"CHANGE_KEY")
+		chmod 600 ~/.steamfix.encrypted
 	fi
 	exit
 fi
@@ -92,3 +93,4 @@ fi
 echo "Starting Steam in background"
 echo "Passing login"
 (steam -login $(openssl aes-256-cbc -d -pbkdf2 -in ~/.steamfix.encrypted -pass pass:"CHANGE_KEY"))&
+
