@@ -93,4 +93,3 @@ fi
 echo "Starting Steam in background"
 echo "Passing login"
 (steam -login $(openssl aes-256-cbc -d -pbkdf2 -in ~/.steamfix.encrypted -pass pass:"CHANGE_KEY"))&
-
